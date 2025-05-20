@@ -390,6 +390,15 @@ and we want this to be done across 2000 users
 		5th to 10th line substitute a with A for multiple (global) occurrences
 		
 
+		sed -i.bak '/director/d' emp.lst
+
+		-i means inplace editing the real file on the go
+
+		.bak is the back file as emp.lst.bak [ it will have the untouched data]
+
+
+
+
 	DELETE BY LINE
 		sed '10d' emp.lst
 
@@ -398,8 +407,14 @@ and we want this to be done across 2000 users
 		sed '/director/d' emp.lst
 
 
+		
+	awk = aho weinberger and kernighan
+		
+
+		it is written in C
 
 
+	./generateHtmlReport.awk data.lst > data.html
 
 
 
