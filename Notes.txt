@@ -169,3 +169,250 @@ root user /bin /sbin /usr/bin /usr/sbin - 505 commands
 
 
 
+Basic commands for file
+	1. create a file
+		cat > filename
+			data
+		^d or ^c to save it
+
+	2. see the content
+		cat emp.lst
+
+	3. rename
+		mv oldname newname
+
+	4. copy
+		cp sourcefile  newcopyName
+
+	5. delete
+		rm filename
+
+	6. move the file [ cut and paste ]
+		mv sourcefile  newlocationDirectory/newName[optioal]
+		mv emp.lst employee.lst <-- renamed
+		mv emp.lst folder1/jacky.lst <-- emp.lst is cut and pasted as
+						jacky.lst in folder1
+
+
+
+DIRECTORY COMMANDS
+-------------------
+	1. make a directory
+		mkdir directory
+	2. change to directory
+
+		cd directory
+	3. exit one level up
+		cd ..
+
+	4. remove directory
+		rmdir directory [ directory must be empty ]
+
+	5. remove complete folder with contents within
+		rm -ri folder
+			-r recursive
+			-i means interactive
+
+		rm -rf  folder 
+			-f force delete [ without interactive ]
+
+	6. cp -r sourcefolder newlocation
+			recursively copy the whole folder to a newlocation
+
+
+
+Various filters
+-----------------------
+	1. wc
+		word count
+
+		wc emp.lst
+		wc -l emp.lst
+		wc -c emp.lst
+		wc -w emp.lst
+
+
+	2. head
+		extract top 10 lines by default
+			head banner.c
+			head -n 5 banner.c
+			haad -n 15 banner.c
+
+	3. tail
+		extract bottom 10 lines by default
+			tail banner.c
+			tail -n 5 banner.c
+			tail -n 15 banner.c
+			
+	4. cut
+			vertical cutting 
+			default delimiter is TAB
+
+			cut - f 1, 2,3 emp.lst
+
+			cut -f -3,5,7- emp.lst
+
+			cut -d "|" -f1,2,3 emp.lst
+
+
+	5. tr
+			translate 
+			
+	6. grep
+	7. egrep
+	8. fgrep
+	9. sed
+	10. awk
+
+
+
+	having more knowledge of filters with more options
+	will optimize scripting
+		and vice versa will increase the lines in the scripting
+		and time too
+
+
+inside 
+
+1	$ vi banner.c
+		|
+		now you are in vi editor
+		|
+2	press i to insert data
+3	enter desired data
+4	press Esc
+
+5	:wq <--- save and quit from vi
+6	back to the prompt
+
+	:q!  - to discard the changes and exit without saving the latest changes
+
+
+
+
+
+
+Quoting
+----------
+single qoutes - ''
+double qoutes - ""
+backquotes    - ``
+
+
+
+
+
+
+
+
+
+		unix server
+			|
+			resources | DB | apps | utilities| printer
+			|
+			scripts are here as a glue code
+			|
+	---------------------------------
+	|	|	|	|	|
+	cl	cl2	cl3	cl4......
+if cl4 is accessing db, then apps and then utilities
+and spending 34 mnts to do such activities
+and we want this to be done across 2000 users
+
+
+	sed
+
+
+	
+		stream editor
+
+
+	SEARCH LINES
+			sed '' filename
+					'' means blank action
+					it also means to print, ie by default
+
+
+
+			sed 'p' emp.lst
+
+					default action to print + 'p' to print
+					hence each record twice
+
+
+			sed '5p' emp.lst
+
+					default action to print + 5p means to print
+					5th line too
+		
+			sed -n '5p' emp.lst
+					-n supresses the default print
+					and prints the 5th line
+
+
+	SEARCH PATTERN
+
+		
+		sed -n '/sharma/p'                  emp.lst
+		sed -n -e '/sharma/p' -e '/gupta/p' emp.lst
+
+
+	APPEND DATA
+		
+		$ means goto the last line, and append after it
+
+		sed '$a\
+			9999|jacky chan|hero|hollywood|1/Jan/50|9999
+		    ' emp.lst
+
+
+		goto the 5th line and append after it
+		sed '5a\
+			9999|jacky chan|hero|hollywood|1/Jan/50|9999
+		    ' emp.lst
+
+
+	INSERT DATA
+
+			
+		sed '1i\
+			9999|jacky chan|hero|hollywood|1/Jan/50|9999
+		' emp.lst
+
+		insert above 1st line
+
+
+	MODIFY DATA
+
+
+		sed '5,10s/a/A/g' emp.lst
+
+		5th to 10th line substitute a with A for multiple (global) occurrences
+		
+
+	DELETE BY LINE
+		sed '10d' emp.lst
+
+	DELETE BY PATTERN
+	
+		sed '/director/d' emp.lst
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
