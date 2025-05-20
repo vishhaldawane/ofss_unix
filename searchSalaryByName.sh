@@ -1,8 +1,23 @@
+
+USERDETAILS="$LOGNAME executed this code at `date`"
 echo "Enter the emp number : " ;  read empno
+
+
+if [ -z $empno ] # if it is zero length [ or blank ]
+then
+	echo "Employee number cannot be blank"
+	STATUS='Blank Employee Number was entered'
+	echo "Log is : $USERDETAILS : $STATUS" >> userdetails.log
+	exit
+else
+	echo  "You entered : $empno"
+	STATUS="Employee Number entered was $empno"
+fi
+
 echo "Searching the record for $empno"
 DATA=`grep ^$empno sal.lst --color`
-if [ $? -eq 0 ]  # space is mandatory 
-then
+if [ $? -eq 0 ]  ; then # space is mandatory 
+
 	echo "Record found"
 	echo "--- DATA IS AS BELOW ---"
 	  EMPNO=`echo "$DATA" | cut -f1` ; EMPNAME=`echo "$DATA" | cut -f2`
@@ -20,7 +35,11 @@ then
 	echo "------------------------"
 	echo "Employee Net    : $NET"
 	echo "------------------------"
+	STATUS="Data found as : $DATA"
 else
 	echo "Record not found"
+	STATUS="Record not found : $empno"
 fi
+
+echo "Log is : $USERDETAILS : $STATUS" >> userdetails.log
 
