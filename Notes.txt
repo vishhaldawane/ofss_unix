@@ -1,0 +1,171 @@
+
+
+
+
+	sthala kaala paristhiti [ situation ]
+
+
+				who
+				|?role, developer/tester/deployer
+				|analyst/infra-team/operations
+				|dba/ db end user/scripter
+				|
+		---------------------------------
+		|				|
+		where				when
+		|space|place			|time
+	-------------------------------------------------
+	|			|			|
+	why ????		what			how [ apply ]
+	[reason]	   inFORMation		implementation
+	grep					success <-- feedback
+	cut
+	awk
+	sed
+	filter
+
+
+
+
+
+		Unix / Linux fundamentals and shell scripting
+
+
+1. Introduction to Unix/Linux
+2. Features
+3. Basic command to file/directory
+4. file permissions
+5. The Vi editor
+6. Various filters
+7. Shell Environment
+8. Shell Scripting <===
+
+
+		unix   = UNiplexed Infomation Computing System
+		
+					UNICS -> UNIX
+		
+		Ken Thompson
+					SCO-UNIX
+					Server
+					|enterprise apps/utilities
+		--------------------------------------------------
+		|	|	|	|	|	|	|
+		c1	c2	c3........ hundreds....thousands...mlns....
+
+
+		EndUser/Admin/PowerUser
+		|
+		Shell <---- remote of a TV
+		|
+		Kernel <-- actual TV software written in assembly
+		|
+		H/w <-- motherboard of the TV
+
+		
+	org	Sun		IBM	HP		Apple		Any
+	h/w	SPARC		bb	hpseries	pp		Any
+	os	Solaris		AIX	Hp-UX		Macintosh	Linux
+		<------------------unix-------------------------->		Linus Torvalds
+		ls		ls	ls		ls		ls
+		grep		grep	grep		grep		more than 50 flavours
+		cut		cut	cut		cut	of linux
+		awk		awk	awk		awk	suse-linux caldera linux
+								mandrake linux
+								redhat linux -> fedora -> ubuntu
+
+				UNIX / GNU-LINUX
+
+		microsoft calculator - GUI - source code is not open
+
+		if the code is open to the world
+		
+				
+	1. Portable in user point of view
+	2. 100% secured system
+			u 	g 	o 	+ 	r 	w	 x 
+			user  group	other		read	write	execute
+
+		execute permission CANNOT be BY DEFAULT
+
+		IN WINDOWS -> CAN WE DISABLE THE EXECUTABLENESS OF AN EXECUTABLE FILE???
+
+
+			IN UNIX/LINUX WE CAN REMOVE THE EXECUTABLENESS FROM A FILE
+
+					chmod u-x   upload.sh
+
+		
+	3. by default a network based system
+			windows NT
+	
+	4. Robust - ability to survive for many years
+
+	5. multi user/multitasking/multiprocessing
+
+
+
+
+
+	File commands
+
+
+	The unix file system structure - international standard structure 
+			
+
+
+	top					/ <-- root directory (folder)
+						|
+	---------------------------------------------------------------------------------
+	|	|	|	|	|	|	|	|	|	|	|	
+1	bin	/sbin	usr	etc	dev	home	var	proc	root	boot	lib
+	20	15	|			|
+		-----------------		amit
+		|		|
+2		bin		sbin
+		400		70
+
+amit has an access of /bin
+priya has an access of /bin/  and /sbin
+jack  has an access of /usr/bin -- 400 commands [ subject to white list ]
+janet has an access of /usr/bin + /usr/sbin -- 470 commands
+root user /bin /sbin /usr/bin /usr/sbin - 505 commands
+	1. / <---- (similar to MyComputer | This PC in windows )
+			the root directory ( the slash directory )
+
+	2. /root <-- this is the HOME directory for the unix admin [ the root user ]
+
+			hey amit goto the /
+			hey amit goto the /root
+
+	3. /sbin	system binaries
+	4. /home/amit	home directory  for amit
+			/home contains the folders of all the users
+
+			/export/abc/0/local/home/amit 
+
+	5. /etc		editable text configuration 
+				configure files from this folder to config the system/box
+
+	6. /dev		device drivers inside this folder /devices on solaris os
+			logical names to the physical devices
+			C: D: E: in windows 
+			we dont have drive letters in unix
+			we HAVE names to the devices
+				/dev/sda1   /dev/sda2
+
+	7. /var		variable data/ logs/spools/buffers/jobs
+	8. /proc	running processes are kept here [ managed here ]
+	9. /boot	the image of the kernel is here
+	10. /lib	libraries [ .dlls in windows ] .so [ shared objects ]
+	11. /tmp	dumping ground for all the datafiles/temp files [ lost in reset ]
+	12. /opt	similar to 'c:\program files' in windows - software are kept here
+			/opt/java/jdk21/bin <-- javac
+			/opt/oracle/db21/bin <--- sqlplus 
+	13. /usr/bin	binaries at larger level
+	14. /usr/sbin	system binaries at larget level
+	15. /usr 	unix system resources
+	16. /bin
+
+
+
